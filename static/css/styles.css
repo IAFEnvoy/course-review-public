@@ -646,6 +646,7 @@ a.btn, button.btn {
     border-radius: 5px;
     text-align: center;
     transition: box-shadow 0.3s ease;
+    user-select: none;
 }
 
 .course-card h3 {
@@ -1463,6 +1464,9 @@ a.btn, button.btn {
     font-size: 1rem;
     color: #666;
     margin-bottom: 0.5rem;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
 }
 
 .course-actions {

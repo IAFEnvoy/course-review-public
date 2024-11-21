@@ -89,11 +89,15 @@ def course_detail(course_id):
 
         review_count = Review.query.filter_by(course_teacher_id=ct.id).count()
         
+        # 将裸数组转换成对应的中文名称
+        semester_map = {'Fall': '秋', 'Spring': '春', 'Summer': '夏', 'Winter': '冬'}  # 季节转换映射
+        semester_str = ', '.join([f"{item.split()[0]}{semester_map[item.split()[1]]}" for item in semester_name])
+
         teachers_info.append({
             'teacher_id': ct.teacher.id, 
             'teacher_name': ct.teacher.name,
             'teacher_title': ct.teacher.title,
-            'semester_name': semester_name,
+            'semester_name': semester_str,
             'average_rating': average_rating,
             'review_count': review_count
         })
